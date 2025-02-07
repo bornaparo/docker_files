@@ -95,7 +95,7 @@ Plug in Baxter's power cable and make sure that Baxter's red button is **not pre
 Go to network settings on Ubuntu and choose "Add a new connection". In IPv4 settings, instead of the default "Automatic (DHCP)" setting, choose "Manual". Add any static IP address (e.g. 192.168.2.101), Netmask 24 and set 192.168.2.1 as Gateway. Save your new network and choose this setting in your network manager every time you are connected to Baxter. If you are connected successfully, you will not have internet connection (since your LAN connection goes to Baxter and not the router). But you can also connect to the wifi while the baxter's ethernet cable is connected and communication will still work.
 
 ### Setting up communication with Baxter
-In the `ros1_baxter` container, open the `baxter.sh` script for editing. As "your_ip" set the static IP address you chose while configuring the network, e.g. `your_ip="192.168.2.101"` Baxter's hostname is defaulted as the robot's serial number. In our case, we set `fbaxter_hostname="011404P0015.local`". Set "ros_version" parameter to `noetic`.
+In the `ros1_baxter` container, open the `baxter.sh` script for editing. As "your_ip" set the static IP address you chose while configuring the network, e.g. `your_ip="192.168.2.101"` Baxter's hostname is defaulted as the robot's serial number. In our case, we set `baxter_hostname="011404P0015.local`". Set "ros_version" parameter to `noetic`.
 
 ### Connecting to Baxter
 Run the baxter.sh script

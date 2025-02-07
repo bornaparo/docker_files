@@ -136,7 +136,7 @@ For example:
 If everything loads well, you should see baxter in rviz with the same pose as the real baxter and arms should move in rviz the same way that real baxter arms are moving.
 
 ## Troubleshooting
-dodaj ono za network itd, za topice
+TODO
 
 ## Credits
 [larics - docker_files](https://github.com/larics/docker_files)

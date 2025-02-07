@@ -139,6 +139,6 @@ If everything loads well, you should see baxter in rviz with the same pose as th
 TODO
 
 ## Credits
-[larics - docker_files](https://github.com/larics/docker_files)
-
+Dockerfiles and run scripts were modified by following solutions from these repositories:
+[larics - docker_files](https://github.com/larics/docker_files), 
 [CroboticSolutions - docker_files](https://github.com/CroboticSolutions/docker_files/tree/master)

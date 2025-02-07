@@ -139,9 +139,6 @@ RUN rosdep install --from-paths . --ignore-src -r -y
 WORKDIR /home/developer/baxter_ws
 RUN bash -c "source /opt/ros/noetic/setup.bash && source /home/developer/baxter_ws/devel/setup.bash && catkin_make"
 
-# Add address resolution so the container can get baxter's topics
-RUN bash -c "echo '192.168.2.69 011404P0015.local' | sudo tee -a /etc/hosts"
-
 # Copy configuration files
 COPY --chown=developer:developer ./to_copy/aliases /home/developer/.bash_aliases
 COPY --chown=developer:developer ./to_copy/nanorc /home/developer/.nanorc

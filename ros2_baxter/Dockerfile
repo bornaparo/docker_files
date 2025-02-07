@@ -170,6 +170,13 @@ WORKDIR /home/developer/baxter_ws
 RUN bash -c "source /opt/ros/humble/setup.sh; source ${COLCON_WS}/install/setup.bash; colcon build" \
     && echo "source /home/developer/baxter_ws/install/setup.bash" >> ~/.bashrc
 
+# Add address resolution so the container can get baxter's topics
+RUN bash -c "echo '192.168.2.69 011404P0015.local' | sudo tee -a /etc/hosts"
+
+# Add exports to the .bashrc
+RUN bash -c "echo 'export ROS_MASTER_URI=http://192.168.2.69:11311' >> ~/.bashrc && \
+             echo 'export ROS_IP=192.168.2.101' >> ~/.bashrc"
+
 WORKDIR /home/developer
 
 CMD ["bash"]

@@ -34,6 +34,7 @@ docker run -it \
     --volume="/dev:/dev" \
     --volume="/var/run/dbus/:/var/run/dbus/:z" \
     --net=host \
+    --add-host=011404P0015.local=192.168.2.69 \
     --privileged \
     --name ros1_baxter \
     ros1_baxter_img:latest

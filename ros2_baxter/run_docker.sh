@@ -10,6 +10,7 @@ ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
 docker run \
   -it \
   --network host \
+  --add-host=011404P0015.local=192.168.2.69 \
   --privileged \
   --volume /dev:/dev \
   --volume /tmp/.x11-unix:/tmp/.x11-unix \

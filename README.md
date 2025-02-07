@@ -125,7 +125,7 @@ For using real baxter with MoveIt2 and ROS2, start these nodes
 **ros2_baxter container**:
 - `ros2 run baxter_bridge bridge`
 
-After starting above nodes, you can start your moveit2 example that utilizes `baxter_moveit2_adapter.h`, or your own way of sending joint trajectory from ros2 moveit2 to ros1 that communicates with baxter.
+After starting above nodes, you can start your moveit2 example that utilizes `baxter_moveit2_adapter` package, or your own way of sending joint trajectory from ros2 moveit2 to ros1 that communicates with baxter.
 
 For example:
 

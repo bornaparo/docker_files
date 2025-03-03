@@ -49,6 +49,11 @@ Position yourself in the `ros2_baxter` directory and build the image
 cd $DOCKER_FILES_DIR/ros2_baxter
 docker build -t ros2_baxter_img:latest .
 ```
+By default, it will build one package at a time, but you can change it dynamically, for example
+```bash
+docker build --build-arg PARALLEL_WORKERS=2 -t ros2_baxter_img:latest .
+```
+
 
 Wait for it to finish, it will take some time (a lot :)).
 

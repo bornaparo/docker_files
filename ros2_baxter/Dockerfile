@@ -135,11 +135,12 @@ RUN export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
 
 # Build MoveIt!
+ARG PARALLEL_WORKERS=1
 WORKDIR ${COLCON_WS}
 RUN sudo apt install ros-${ROS2_DISTRO}-ament-cmake-python
 RUN sudo apt-get install ros-${ROS2_DISTRO}-rviz-visual-tools 
 # RUN bash -c "source /opt/ros/humble/setup.sh; source ~/.bashrc; MAKEFLAGS="-j${nproc-1}" colcon build --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release"
-RUN bash -c "source /opt/ros/humble/setup.sh; source ~/.bashrc; colcon build --executor parallel --parallel-workers 2 --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release"
+RUN bash -c "source /opt/ros/humble/setup.sh; source ~/.bashrc; colcon build --executor parallel --parallel-workers ${PARALLEL_WORKERS} --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release"
 # WORKDIR ${COLCON_WS}/src
 WORKDIR ${COLCON_WS}/src
 RUN git clone https://github.com/moveit/moveit2_tutorials.git -b ${ROS2_DISTRO} \
@@ -148,7 +149,7 @@ RUN git clone https://github.com/moveit/moveit2_tutorials.git -b ${ROS2_DISTRO} 
     && git clone https://github.com/moveit/moveit_task_constructor.git -b ${ROS2_DISTRO}
 WORKDIR ${COLCON_WS}
 # RUN bash -c "source /opt/ros/humble/setup.sh; source ~/.bashrc; MAKEFLAGS="-j${nproc-1}" colcon build --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release"
-RUN bash -c "source /opt/ros/humble/setup.sh; source ~/.bashrc; colcon build --executor parallel --parallel-workers 2 --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release"
+RUN bash -c "source /opt/ros/humble/setup.sh; source ~/.bashrc; colcon build --executor parallel --parallel-workers ${PARALLEL_WORKERS} --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release"
 RUN echo "source ${COLCON_WS}/install/setup.bash" >> ~/.bashrc
 
 # Download minimal ros1 files needed for creating ros1<->ros2 bridge
